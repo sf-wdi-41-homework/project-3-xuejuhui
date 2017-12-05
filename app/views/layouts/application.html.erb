@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>REat</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded ">
+
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <% if current_user %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", logout_path %></li>
+          <% else %>
+            <li><%= link_to "Sign Up ", new_user_path %></li>
+            <li><%= link_to "Log In", login_path %></li>
+          <% end %>
+        </ul>
+
+      </div>
+    </nav>
+    <% flash.each do |name, msg| %>
+    <div id="flash-message" class="<%= name %>">
+      <div class="container">
+        <p>
+          <%= name.capitalize %>: <%= msg %>
+        </p>
+      </div>
+
+    </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
