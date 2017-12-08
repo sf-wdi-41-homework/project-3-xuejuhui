@@ -1,0 +1,7 @@
+<h1>Hi</h1>
+<%=render "form"%>
+<% @restaurant["businesses"].each do |business|%>
+	<h3><%= link_to business["name"], business["url"]%></h3>
+	<%= link_to(image_tag(business["image_url"], height: '300', width: '300'))%>
+
+	<% end %>

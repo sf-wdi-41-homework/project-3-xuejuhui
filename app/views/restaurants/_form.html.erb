@@ -1,0 +1,6 @@
+<%= form_tag restaurants_path do %>
+  <label for="lookup">Lookup</label>
+  <%= text_field_tag :term %>
+  <%= text_field_tag :location %>
+  <%= submit_tag "Submit" %>
+<% end %>

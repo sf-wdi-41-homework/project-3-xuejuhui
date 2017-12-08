@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
 	def index
-		@search_term = params[:looking_for] || 'chocolate'
+		@search_term = params[:looking_for] || "chicken"
+		p @search_term
   		@recipes = Recipe.for(@search_term)
   		@randomrecipes = @recipes.sample(3)	
 	end 

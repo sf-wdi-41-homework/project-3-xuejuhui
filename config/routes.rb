@@ -16,6 +16,9 @@ get '/recipes', to: 'recipes#index', as: "recipes"
 post "/recipes", to: 'recipes#index'
 post '/recipesave', to: 'recipes#create', as:'recipesave'
 
+get '/restaurants', to: 'restaurants#index', as: "restaurants"
+post "/restaurants", to: 'restaurants#index'
+
 
 
 end

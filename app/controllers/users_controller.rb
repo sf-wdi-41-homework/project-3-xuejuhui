@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 	end 
 	def show
 		@user = User.find(session[:user_id])
+		@recipes = @user.recipes
 	end 
 	private
 	def user_params
