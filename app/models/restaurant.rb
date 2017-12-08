@@ -7,7 +7,8 @@ class Restaurant < ApplicationRecord
 	GRANT_TYPE = "client_credentials"
 
   def self.search(term, location)
-  
+  auth = "Bearer " + ENV['YELP_API']
+
   url = "#{API_HOST}#{SEARCH_PATH}"
   params = {
     term: term,

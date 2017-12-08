@@ -3,7 +3,18 @@
       <h1><%= @user.email %>!</h1>
        <h1><%= @user.username%>!</h1>
 
- 	<% @recipes.each do |recipe|%>
- 	<%= recipe.name%>
- 	<%= recipe.date%>
- 	<% end %>
+ 	<h1>
+ 		<% @recipes.each do |recipe|%>
+	 		<%= recipe.name%>
+	 		<%= recipe.date.to_date%>
+ 		<% end %>
+ 	</h1>
+ 	<h1>
+ 		<% @restaurants.each do |restuarant|%>
+	 		<p><%= restuarant.name%></p>
+	 		<p><%= restuarant.address%></p>
+	 		<p><%= restuarant.price%></p>
+	 		<p><%= restuarant.category%></p>
+	 		<p><%= restuarant.created_at.to_date%></p>
+ 		<% end %>
+ 	</h1>
