@@ -1,0 +1,7 @@
+Hi <%= @user.username %>
+
+<%= @recipes["name"]%>
+<% @recipes["ingredient"].each do |ing|%>
+<p><%= ing %></p>
+<% end %>
+

@@ -60,7 +60,26 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "r-eat_#{Rails.env}"
-  config.action_mailer.perform_caching = false
+    # Don't care if the mailer can't send.
+
+  config.action_mailer.raise_delivery_errors = true
+
+  # ActionMailer Config
+
+  config.action_mailer.default_url_options = { :host => 'mighty-journey-23264.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+   :address              => "smtp.gmail.com",
+   :port                 => 587,
+   :user_name            => ENV['GMAIL_USERNAME'],
+   :password             => ENV['GMAIL_PASSWORD'],
+   :authentication       => "login",
+   :enable_starttls_auto => true
+  }
+
+  # Send email in development mode?
+  config.action_mailer.perform_deliveries = true
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

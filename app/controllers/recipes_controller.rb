@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
 			ingredient: params[:ingredient], 
 			image: params[:image])
 		if @recipe.save
+			ReminderMailer.reminder_emailrecipe(user).deliver_later
 			flash[:success] = "You saved this recipe"
 			redirect_to recipes_path
 		else
