@@ -12,7 +12,9 @@ class RecipesController < ApplicationController
 	def create
 		user = current_user
 		@recipe = user.recipes.new(name: params[:name], 
-			date: DateTime.now, ingredient: params[:ingredient])
+			date: DateTime.now, 
+			ingredient: params[:ingredient], 
+			image: params[:image])
 		if @recipe.save
 			flash[:success] = "You saved this recipe"
 			redirect_to recipes_path

@@ -49,6 +49,7 @@
 					<%= form_with url: recipesave_path do|f|%>
 	 
 	          			<%= f.hidden_field :name, value: course["title"]%>
+	          			<%= f.hidden_field :image, value: course["image_url"]%>
 
 	          			<%= f.hidden_field :ingredient, value: @ingredients["ingredients"]%>
 	      				<%= f.submit "Save"%>

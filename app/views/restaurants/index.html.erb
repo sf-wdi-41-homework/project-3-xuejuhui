@@ -45,11 +45,14 @@
 					<h4><%= category["title"]%></h4>
 				<% end %>
 				<h5><%= "Rating #{business["rating"]}/5"%></h5>
-				<h5><%= business["location"]["display_address"]%></h5>
+				<% business["location"]["display_address"].each do |address|%>
+          <%= address%>
+        <% end%>
 				<h5><%= business["display_phone"]%></h5>
 				<h5><%= business["price"]%></h5> 
 				<%= form_with url: restaurantssave_path do|f|%>
 				  <%= f.hidden_field :link, value: business["url"]%>
+          <%= f.hidden_field :image, value: business["image_url"]%>
 		 		  <%= f.hidden_field :name, value: business["name"]%>
 		 		  <%= f.hidden_field :address, value:  business["location"]["display_address"]%>
 		 		  <%= f.hidden_field :price, value: business["price"]%>

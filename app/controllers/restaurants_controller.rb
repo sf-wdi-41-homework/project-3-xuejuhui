@@ -12,7 +12,8 @@ class RestaurantsController < ApplicationController
 		address: params[:address], 
 		price: params[:price],
 		category: params[:category],
-		link: params[:link])
+		link: params[:link],
+		image: params[:image])
 		if @restaurant.save
 			ReminderMailer.reminder_email(user).deliver_later
 			flash[:success] = "You saved this restaurant"
