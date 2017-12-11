@@ -8,4 +8,8 @@ class Recipe < ApplicationRecord
  def self.for(term)
 	get("/search", query: { q: term})["recipes"]
  end
+ def self.ing(id)
+ 	get('/get', query: {rId: id})["recipe"]
+ end
+
 end

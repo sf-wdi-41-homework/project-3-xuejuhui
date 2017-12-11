@@ -1,29 +1,75 @@
-<h1>Searching for - <%= @search_term %></h1>
-<p>Powered By Food2Fork.com</p>
-	<% if (@recipes.nil? || @recipes == []) %>
-<p> <h2>No recipes found.. Sorry</h2></p>
-	<% else %>
-<table border="1">
- <tr>
- <th>Image</th>
- <th>Name</th>
- <th>Rank</th>
- </tr>
- 	<% @randomrecipes.each do |course| %>
-		 <tr class=<%= cycle('even', 'odd') %>>
-		 <td><%= link_to(image_tag(course["image_url"], height: '100', width: '100'), course["f2f_url"])%></td>
-		 <td><%= link_to(course["title"], course["f2f_url"]) %></td>
-		 <td><%= course["social_rank"] %></td>
-
-		   <td> <%= form_with url: recipesave_path do|f|%>
- 
-          <%= f.hidden_field :name, value: course["title"]%>
-      <%= f.submit "Sign Up"%>
-    <% end %>
-    </td>
-
-		 </tr>
- 	<% end %>
-</table>
-<% end %>
 <%= render "form"%>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>One Page Wonder - Start Bootstrap Template</title>
+
+  </head>
+
+  <body>
+  	<% if (@recipes.nil? || @recipes == []) %>
+  		<p> <h2>No recipes found.. Sorry</h2></p>
+	<% else %>
+  	
+    <header class="masthead">
+      <div class="overlay">
+        <div class="container">
+          <h1 class="display-1 text-white">One Page Wonder</h1>
+          <h2 class="display-4 text-white">Will Rock Your Socks Off</h2>
+        </div>
+      </div>
+    </header>
+    <h1>Searching for - <%= @search_term %></h1>
+	  <% @randomrecipes.each do |course| %>
+
+	    <section>
+	      <div class="container">
+	        <div class="row align-items-center">
+	          <div class="col-md-6 order-2">
+	            <div class="p-5">
+	             <%= link_to(image_tag(course["image_url"], height: '300', width: '300',class: "img-fluid rounded-circle"), course["f2f_url"])%>
+	            </div>
+	          </div>
+	          <div class="col-md-6 order-1">
+	            <div class="p-5">
+	              <h2 class="display-4"><%= link_to(course["title"], course["f2f_url"]) %></h2>
+					<h5><%= "Rating #{course["social_rank"].to_i}/100" %></h5>
+					<h4>Ingredients</h4>
+					<h5><% @ingredients["ingredients"].each do |ingredient| %></h5>
+					<h5><%= ingredient%></h5>
+					<% end%>
+					
+					<%= form_with url: recipesave_path do|f|%>
+	 
+	          			<%= f.hidden_field :name, value: course["title"]%>
+
+	          			<%= f.hidden_field :ingredient, value: @ingredients["ingredients"]%>
+	      				<%= f.submit "Save"%>
+	    			<% end %>
+
+	    	 	
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
+	   <% end %>
+    <% end %>
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    <p class="m-0 text-center text-white">Powered By Food2Fork.com</p>
+  </div>
+  <!-- /.container -->
+</footer>
+</body>
+
+</html>
