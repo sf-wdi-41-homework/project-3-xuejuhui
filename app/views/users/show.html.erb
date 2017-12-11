@@ -8,8 +8,9 @@
 	 		<p><%= recipe.name%></p>
 	 		<p><%= recipe.date.to_date%></p>
 	 		<p><% ingredient = recipe.ingredient%></p>
-	 		<% p ingredient%>
-	 		<p><%= ingredient%></p>
+	 		<p><% ingredient.each do |ing|%></p>
+	 		<%= ing %>
+	 		<% end %>
 
 
  		<% end %>
