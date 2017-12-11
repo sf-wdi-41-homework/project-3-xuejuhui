@@ -5,13 +5,18 @@
 
  	<h1>
  		<% @recipes.each do |recipe|%>
-	 		<%= recipe.name%>
-	 		<%= recipe.date.to_date%>
+	 		<p><%= recipe.name%></p>
+	 		<p><%= recipe.date.to_date%></p>
+	 		<p><% ingredient = recipe.ingredient%></p>
+	 		<% p ingredient%>
+	 		<p><%= ingredient%></p>
+
+
  		<% end %>
  	</h1>
  	<h1>
  		<% @restaurants.each do |restuarant|%>
-	 		<p><%= restuarant.name%></p>
+	 		<p><%=link_to restuarant.name, restuarant.link%></p>
 	 		<p><%= restuarant.address%></p>
 	 		<p><%= restuarant.price%></p>
 	 		<p><%= restuarant.category%></p>

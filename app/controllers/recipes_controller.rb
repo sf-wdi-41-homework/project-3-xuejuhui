@@ -1,13 +1,18 @@
 class RecipesController < ApplicationController
+	
 	def index
 		@search_term = params[:looking_for] || "chicken"
-		p @search_term
   		@recipes = Recipe.for(@search_term)
-  		@randomrecipes = @recipes.sample(3)	
+  		@randomrecipes = @recipes.sample(3)
+  		@randomrecipes.each do |course|
+	  		search_ing = course["recipe_id"]
+  			@ingredients = Recipe.ing(search_ing)
+  		end 
 	end 
 	def create
 		user = current_user
-		@recipe = user.recipes.new(name: params[:name], date: DateTime.now)
+		@recipe = user.recipes.new(name: params[:name], 
+			date: DateTime.now, ingredient: params[:ingredient])
 		if @recipe.save
 			flash[:success] = "You saved this recipe"
 			redirect_to recipes_path
@@ -15,10 +20,5 @@ class RecipesController < ApplicationController
 			flash[:error] = @recipe.errors.full_messages.join(' ')
 			redirect_to recipes_path
 		end
-	end 
-
-	private
-	def recipe_params
-		params.require(:recipe).permit(:name, :ingredient)
 	end 
 end

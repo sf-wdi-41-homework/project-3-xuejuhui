@@ -11,8 +11,10 @@ class RestaurantsController < ApplicationController
 		@restaurant = user.restaurants.new(name: params[:name], 
 		address: params[:address], 
 		price: params[:price],
-		category: params[:category])
+		category: params[:category],
+		link: params[:link])
 		if @restaurant.save
+			ReminderMailer.reminder_email(user).deliver_later
 			flash[:success] = "You saved this restaurant"
 			redirect_to restaurants_path
 		else
