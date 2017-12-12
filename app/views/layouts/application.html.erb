@@ -8,7 +8,6 @@
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-
   </head>
 
   <body>
@@ -23,7 +22,7 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
              <% if current_user %>
-                <li class="nav-link"><%= link_to "Profile", user_path(current_user) %></li>
+                <li class="nav-link"><%= link_to "Profile", user_path %></li>
                 <li class="nav-link"><%= link_to "Log Out", logout_path %></li>
                 <li class="nav-link"><%= link_to "Recipe", recipes_path%></li>
                 <li class="nav-link"><%= link_to "Restaurant", restaurants_path%></li>
