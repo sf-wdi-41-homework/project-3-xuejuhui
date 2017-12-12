@@ -7,7 +7,7 @@
 		if @user
 			login(@user)
 			flash[:notice] = "Successfully logged in."
-			redirect_to user_path
+			redirect_to user_path(@user)
 		else
 			flash[:error] = "Incorrect email or password."
       redirect_to login_path
