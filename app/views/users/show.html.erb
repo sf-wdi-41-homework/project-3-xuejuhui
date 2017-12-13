@@ -22,7 +22,7 @@
     <div class="grid-sizer"></div>
  <% @recipes.each do |recipe|%>  
     <div class="grid-item">
-   	  <%= link_to(image_tag(recipe.image, height: '300', width: '300',class: "img-responsive img-fluid rounded-circle"))%>
+   	  <%= image_tag(recipe.image, height: '300', width: '300',class: "img-responsive img-fluid rounded-circle")%>
         <div class="project-text-holder">
           <div class="project-text-inner">
           	<h3><%= recipe.date.to_date%></h3>
@@ -31,21 +31,24 @@
 	 		<p><% ingredient.each do |ing|%></p>
 	 			<%= ing %>
 	 		<% end %>
+      <br>
+         <%=link_to "Delete", delete_recipe_path(recipe.id), method: :delete, class: "btn btn-danger btn-sm"%>
           </div>
         </div>
     </div>
   <% end %>
 
- <% @restaurants.each do |restuarant|%>
+ <% @restaurants.each do |restaurant|%>
     <div class="grid-item">
- 	  <%= link_to(image_tag(restuarant.image, height: '300', width: '300',class: "img-responsive img-fluid rounded-circle"))%>
+ 	  <%= image_tag(restaurant.image, height: '300', width: '300',class: "img-responsive img-fluid rounded-circle")%> 
         <div class="project-text-holder">
           <div class="project-text-inner">
-          	<h3><%= restuarant.created_at.to_date%></h3>
-            <h3><%=link_to restuarant.name, restuarant.link%></h3>
-	 		<p><%= restuarant.address%></p>
-	 		<p><%= restuarant.price%></p>
-	 		<p><%= restuarant.category%></p>
+          	<h3><%= restaurant.created_at.to_date%></h3>
+            <h3><%=link_to restaurant.name, restaurant.link%></h3>
+	 		<p><%= restaurant.address%></p>
+	 		<p><%= restaurant.price%></p>
+	 		<p><%= restaurant.category%></p>
+          <%=link_to "Delete", delete_restaurant_path(restaurant.id), method: :delete, class: "btn btn-danger btn-sm"%> 
           </div>
         </div>
     </div>

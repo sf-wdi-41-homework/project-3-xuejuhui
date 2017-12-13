@@ -1,4 +1,3 @@
-<%= render "form"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,23 +8,94 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>One Page Wonder - Start Bootstrap Template</title>
 
   </head>
 
   <body>
-  	<% if (@recipes.nil? || @recipes == []) %>
-  		<p> <h2>No recipes found.. Sorry</h2></p>
+  	<% if (@search_term.nil?) %>
+  	<header class="masthead">
+      <div class="overlay">
+        <div class="container">
+          <h1 class="display-1 text-white">Wonderful Foods</h1>
+          <h2 class="display-4 text-white">Unexpected Food Journeys</h2>
+        </div>
+      </div>
+    </header>
+      <br>
+  		<div class="text-center"><%= render "form"%></div>
+  		    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 order-2">
+            <div class="p-5">
+              <%= image_tag("2", class: "img-fluid rounded-circle")%>
+            </div>
+          </div>
+          <div class="col-md-6 order-1">
+            <div class="p-5">
+              <h2 class="display-4">For those about to eat...</h2>
+              <p>“Pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.” 
+				― Ruth Reichl</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="p-5">
+              <%= image_tag("1", class: "img-fluid rounded-circle")%>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-5">
+              <h2 class="display-4">We salute you!</h2>
+              <p>“Let food be thy medicine and medicine be thy food.” 
+				― Hippocrates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 order-2">
+            <div class="p-5">
+              <%= image_tag("3", class: "img-fluid rounded-circle")%>
+            </div>
+          </div>
+          <div class="col-md-6 order-1">
+            <div class="p-5">
+              <h2 class="display-4">Let there be Food!</h2>
+              <p>“This above all: to thine own self be true, 
+					And it must follow, as the night the day, 
+					Thou canst not then be false to any man.” 
+					― William Shakespeare, Hamlet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  		
 	<% else %>
   	
     <header class="masthead">
       <div class="overlay">
         <div class="container">
           <h1 class="display-1 text-white">One Page Wonder</h1>
-          <h2 class="display-4 text-white">Will Rock Your Socks Off</h2>
+          <h2 class="display-4 text-white">Unexpected Food Journeys</h2>
         </div>
       </div>
     </header>
+      <br>
+  <div class="text-center"><%= render "form"%></div>
     <h1>Searching for - <%= @search_term %></h1>
 	  <% @randomrecipes.each do |course| %>
 
@@ -66,7 +136,7 @@
 <!-- Footer -->
 <footer class="py-5 bg-dark">
   <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    <p class="m-0 text-center text-white">Copyright &copy; R-Eat 2017</p>
     <p class="m-0 text-center text-white">Powered By Food2Fork.com</p>
   </div>
   <!-- /.container -->

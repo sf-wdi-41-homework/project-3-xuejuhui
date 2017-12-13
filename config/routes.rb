@@ -15,10 +15,12 @@ get '/logout', to: 'sessions#destroy'
 get '/recipes', to: 'recipes#index', as: "recipes"
 post "/recipes", to: 'recipes#index'
 post '/recipesave', to: 'recipes#create', as:'recipesave'
+delete '/recipes/:id', to: 'recipes#destroy', as:"delete_recipe"
 
 get '/restaurants', to: 'restaurants#index', as: "restaurants"
 post "/restaurants", to: 'restaurants#index'
 post '/restaurantssave', to: 'restaurants#create', as:'restaurantssave'
+delete '/restaurants/:id', to: 'restaurants#destroy', as:"delete_restaurant"
 
 
 

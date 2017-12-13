@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 	
 	def index
-		@search_term = params[:looking_for] || "chicken"
+		@search_term = params[:looking_for]
   		@recipes = Recipe.for(@search_term)
   		@randomrecipes = @recipes.sample(3)
   		@randomrecipes.each do |course|
@@ -24,4 +24,11 @@ class RecipesController < ApplicationController
 			redirect_to recipes_path
 		end
 	end 
+	def destroy
+		user = current_user
+		recipes = user.recipes
+		recipe = recipes.find(params[:id])
+		recipe.destroy
+		redirect_to user_path(user) 
+	end
 end
