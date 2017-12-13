@@ -4,7 +4,7 @@
 
 ### What does it do?
 
-R-eat is an app that helps people gnerate few recipes or restaurants randomly, as well as track their history of eating habit.
+R-eat is an app that helps people gnerate recipes or restaurants randomly, as well as track their history of eating habit.
 
 ### MVP features
 - a search feature that search yelp and other sources for data
