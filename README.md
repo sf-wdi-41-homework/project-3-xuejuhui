@@ -1,24 +1,39 @@
-# README
+# R-EAT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What to eat
 
-Things you may want to cover:
+### What does it do?
 
-* Ruby version
+R-eat is an app that helps people gnerate few recipes or restaurants randomly, as well as track their history of eating habit.
 
-* System dependencies
+### MVP features
+- a search feature that search yelp and other sources for data
+- randomly generate few items according to the users preference
+- a profile view to your eating history
+- reminder email of that you save
 
-* Configuration
+### Stretch goals/wish list
 
-* Database creation
+- letting users create their a list of recipes and restaurants and generate randomly from that list.
+- Letting users checkout other user's profile.
 
-* Database initialization
+### Technologies
+- Gems: http, httparty, jQuery, bootstrap
+- ActionMailer
 
-* How to run the test suite
+### R-EAT
+```bash 
+https://mighty-journey-23264.herokuapp.com/
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### R-EAT
+```bash 
+Wireframes  unavailable
+Userstories unavailable
+ERD unavailable
+```
 
-* Deployment instructions
+####Shoutout to WDI 41
 
-* ...
+
+
